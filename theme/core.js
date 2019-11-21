@@ -6,11 +6,14 @@ const colors = {
   red: '#D51F2B',
   white: '#FFFFFF',
   gray: '#CCCCCC',
+  black: '#000000',
 };
 
 const theme = {
   ...layouts,
   primary: colors.red,
+  dark: colors.black,
+  white: colors.white,
   // Navigation
   activeTintColor: colors.white,
   inactiveTintColor: colors.gray,
@@ -19,7 +22,7 @@ const theme = {
   // Font size
   fontSizeBase: 14,
   fontSizeSmall: 12,
-  fontSizeMedium: 18,
+  fontSizeMedium: 16,
 
   // Font weight
   fontWeightLight: '300',
