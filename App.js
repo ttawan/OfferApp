@@ -4,15 +4,20 @@ import React from 'react';
 import {View, StyleSheet, StatusBar} from 'react-native';
 import AppNavigator from './navigation/AppNavigator';
 
-class App extends React.Component {
-  render() {
-    return (
+import {Provider} from 'react-redux';
+import configureStore from './configureStore';
+
+const store = configureStore({});
+
+function App() {
+  return (
+    <Provider store={store}>
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <AppNavigator />
       </View>
-    );
-  }
+    </Provider>
+  );
 }
 
 const styles = StyleSheet.create({

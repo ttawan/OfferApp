@@ -8,7 +8,7 @@ import TabBar from 'components/TabBar';
 import Theme from 'theme/core';
 
 // Containers
-import HomeScreen from 'screens/HomeScreen';
+import HomeContainer from 'containers/HomeContainer';
 import OfferScreen from 'screens/OfferScreen';
 import TippingScreen from 'screens/TippingScreen';
 import BookScreen from 'screens/BookScreen';
@@ -22,7 +22,7 @@ import IconBook from 'assets/icons/book.svg';
 import IconMore from 'assets/icons/more.svg';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeContainer,
 });
 
 HomeStack.navigationOptions = {
