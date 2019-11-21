@@ -1,16 +1,30 @@
 const layouts = {
-  padding: 10,
+  paddingBase: 10,
 };
 
 const colors = {
-  red: 'red',
+  red: '#D51F2B',
+  white: '#FFFFFF',
+  gray: '#CCCCCC',
 };
 
-export default {
-  theme: {
-    layouts,
-    light: {
-      primary: colors.red,
-    },
-  },
+const theme = {
+  ...layouts,
+  primary: colors.red,
+  // Navigation
+  activeTintColor: colors.white,
+  inactiveTintColor: colors.gray,
+  tabBarBackgroundColor: colors.red,
+
+  // Font size
+  fontSizeBase: 14,
+  fontSizeSmall: 12,
+  fontSizeMedium: 18,
+
+  // Font weight
+  fontWeightLight: '300',
+  fontWeightRegular: '400',
+  fontWeightBold: '500',
 };
+
+export default theme;
