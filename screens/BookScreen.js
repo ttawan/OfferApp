@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
 import Header from 'components/Header';
 import ContentArea from 'components/ContentArea';
 
-class HomeScreen extends Component {
+class BookScreen extends Component {
   static navigationOptions = {
-    header: () => <Header title="Home" />,
+    header: () => <Header title="Book" />,
   };
 
   render() {
     return (
       <ContentArea>
-        <Text>Home Screen</Text>
+        <Text>Book Screen</Text>
       </ContentArea>
     );
   }
 }
 
-export default HomeScreen;
+export default BookScreen;

@@ -2,10 +2,19 @@ import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
+
+// Components
 import TabBar from 'components/TabBar';
-import HomeScreen from 'screens/HomeScreen';
 import Theme from 'theme/core';
 
+// Containers
+import HomeScreen from 'screens/HomeScreen';
+import OfferScreen from 'screens/OfferScreen';
+import TippingScreen from 'screens/TippingScreen';
+import BookScreen from 'screens/BookScreen';
+import MoreScreen from 'screens/MoreScreen';
+
+// Icons
 import IconHome from 'assets/icons/home.svg';
 import IconOffer from 'assets/icons/offer.svg';
 import IconTipping from 'assets/icons/tipping.svg';
@@ -28,7 +37,7 @@ HomeStack.navigationOptions = {
 };
 
 const OfferStack = createStackNavigator({
-  Offer: HomeScreen,
+  Offer: OfferScreen,
 });
 
 OfferStack.navigationOptions = {
@@ -43,7 +52,7 @@ OfferStack.navigationOptions = {
 };
 
 const TippingStack = createStackNavigator({
-  Tipping: HomeScreen,
+  Tipping: TippingScreen,
 });
 
 TippingStack.navigationOptions = {
@@ -58,7 +67,7 @@ TippingStack.navigationOptions = {
 };
 
 const BookingStack = createStackNavigator({
-  Booking: HomeScreen,
+  Booking: BookScreen,
 });
 
 BookingStack.navigationOptions = {
@@ -73,7 +82,7 @@ BookingStack.navigationOptions = {
 };
 
 const MoreStack = createStackNavigator({
-  More: HomeScreen,
+  More: MoreScreen,
 });
 
 MoreStack.navigationOptions = {
