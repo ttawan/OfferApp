@@ -10,7 +10,7 @@ import {fetchItemsSuccess, fetchItemsFailed} from './actions';
 import normalized from './schemas';
 
 /**
- * Load book items
+ * Load items
  */
 function getOfferService() {
   return new Promise((resolve, reject) => {
@@ -22,9 +22,9 @@ function getOfferService() {
 }
 
 /**
- * Get book items from API and update on reducer
+ * Get items from API and update on reducer
  */
-function* getBooks() {
+function* getOfferItems() {
   try {
     const items = yield call(getOfferService);
     const allItems = normalized({offers: items});
@@ -40,5 +40,5 @@ function* getBooks() {
  */
 export default function* root() {
   // User request books items
-  yield takeLatest(FETCH_ITEMS_REQUEST, getBooks);
+  yield takeLatest(FETCH_ITEMS_REQUEST, getOfferItems);
 }
