@@ -9,7 +9,7 @@ import Theme from 'theme/core';
 
 // Containers
 import HomeContainer from 'containers/HomeContainer';
-import OfferScreen from 'screens/OfferScreen';
+import OfferContainer from 'containers/OfferContainer';
 import TippingScreen from 'screens/TippingScreen';
 import BookScreen from 'screens/BookScreen';
 import MoreScreen from 'screens/MoreScreen';
@@ -37,7 +37,7 @@ HomeStack.navigationOptions = {
 };
 
 const OfferStack = createStackNavigator({
-  Offer: OfferScreen,
+  Offer: OfferContainer,
 });
 
 OfferStack.navigationOptions = {

@@ -4,7 +4,7 @@
 
 import {put, call, takeLatest} from 'redux-saga/effects';
 import axios from 'axios';
-import {API_BOOK} from 'utils/apis';
+import {API_BASE} from 'utils/apis';
 import {FETCH_ITEMS_REQUEST} from './actionTypes';
 import {fetchItemsSuccess, fetchItemsFailed} from './actions';
 import normalized from './schemas';
@@ -12,10 +12,10 @@ import normalized from './schemas';
 /**
  * Load book items
  */
-function getBookService() {
+function getOfferService() {
   return new Promise((resolve, reject) => {
     axios
-      .get(API_BOOK)
+      .get(API_BASE)
       .then(res => resolve(res.data))
       .catch(err => reject(err));
   });
@@ -26,9 +26,10 @@ function getBookService() {
  */
 function* getBooks() {
   try {
-    const books = yield call(getBookService);
-    const allBooks = normalized({books});
-    yield put(fetchItemsSuccess(allBooks));
+    const items = yield call(getOfferService);
+    const allItems = normalized({offers: items});
+
+    yield put(fetchItemsSuccess(allItems));
   } catch (err) {
     yield put(fetchItemsFailed(err));
   }

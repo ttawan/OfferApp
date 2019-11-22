@@ -3,10 +3,11 @@ import {compose} from 'redux';
 import {createStructuredSelector} from 'reselect';
 import HomeScreen from 'screens/HomeScreen';
 import {fetchItemsRequest} from './actions';
-import {makeSelectAllOffers} from './selectors';
+import {makeSelectAllOffers, makeSelectFetchingStatus} from './selectors';
 
 const mapStateToProps = createStructuredSelector({
   allOffers: makeSelectAllOffers(),
+  isFetching: makeSelectFetchingStatus(),
 });
 
 const mapDispatchToProps = dispatch => ({

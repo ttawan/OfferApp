@@ -1,17 +1,23 @@
 import {normalize, schema} from 'normalizr';
 
-// Define book items entity
+// Define items entity
 const items = new schema.Entity(
-  'items',
+  'offers',
   {},
   {
-    idAttribute: 'book_id',
+    idAttribute: 'id',
     processStrategy: item =>
-      Object.assign({}),
+      Object.assign({
+        image: item.image,
+        id: item.id,
+        locations: item.locations,
+        title: item.title,
+        start_date: item.start_date,
+      }),
   },
 );
 
 export default data =>
   normalize(data, {
-    allItems: new schema.Array(items),
+    offers: new schema.Array(items),
   });

@@ -21,6 +21,15 @@ class OfferDetailScreen extends Component {
     };
   };
 
+  constructor(props) {
+    super(props);
+    this.getParams = this.getParams.bind(this);
+  }
+
+  getParams(key) {
+    return this.props.navigation.getParam(key);
+  }
+
   render() {
     return (
       <ContentArea noPadding>
@@ -29,22 +38,21 @@ class OfferDetailScreen extends Component {
             <FastImage
               style={styles.itemCardImage}
               source={{
-                uri:
-                  'https://test.sportingglobe.com.au/wp-content/uploads/2019/07/App-Hero-NBA.jpg',
+                uri: this.getParams('image'),
                 priority: FastImage.priority.normal,
               }}
               resizeMode={FastImage.resizeMode.stretch}
             />
             <View style={styles.contentContainerStyle}>
               <Text.Headline style={globalStyles.textWhite}>
-                Headline Text
+                {this.getParams('title')}
               </Text.Headline>
               <Text.SubHeadline style={globalStyles.textWhite}>
-                Sub Headline Text
+                {this.getParams('locations')}
               </Text.SubHeadline>
-              <Text style={globalStyles.textWhite}>Normal Text</Text>
-              <Text style={globalStyles.textWhite}>Normal Text</Text>
-              <Text style={globalStyles.textWhite}>Normal Text</Text>
+              <Text style={globalStyles.textWhite}>
+                {this.getParams('start_date')}
+              </Text>
               <Text style={globalStyles.textWhite}>Normal Text</Text>
               <Text.Headline style={globalStyles.textWhite}>
                 Headline Text
@@ -52,7 +60,10 @@ class OfferDetailScreen extends Component {
               <Text style={globalStyles.textWhite}>Normal Text</Text>
             </View>
             <View
-              style={[{padding: Theme.paddingBase}, globalStyles.flexRowCenter]}>
+              style={[
+                {padding: Theme.paddingBase},
+                globalStyles.flexRowCenter,
+              ]}>
               <Text style={globalStyles.textWhite}>
                 Scan the barcode to redeem
               </Text>

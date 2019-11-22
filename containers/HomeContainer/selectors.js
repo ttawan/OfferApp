@@ -16,12 +16,19 @@ export const makeSelectAllOffers = () =>
   createSelector(
     selectDomain,
     state => {
-      const items = getEntities(state, 'items');
+      const items = getEntities(state, 'offers');
       if (isEmpty(items)) {
         return [];
       }
+
       return toArray(items);
     },
+  );
+
+export const makeSelectFetchingStatus = () =>
+  createSelector(
+    selectDomain,
+    state => state.isFetching,
   );
 
 export default selectDomain;

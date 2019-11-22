@@ -3,7 +3,7 @@ import {
   SafeAreaView,
   ScrollView,
   Linking,
-  View,
+  ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 import Header from 'components/Header';
@@ -20,7 +20,13 @@ class HomeScreen extends Component {
     header: () => <Header title="Home" />,
   };
 
+  componentDidMount() {
+    this.props.fetchItems();
+  }
+
   render() {
+    const {isFetching} = this.props;
+
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView
@@ -30,13 +36,14 @@ class HomeScreen extends Component {
           <Text.Display style={globalStyles.textWhite}>
             Signature Hospitality Group
           </Text.Display>
-          <UnderlineIcon fill={Theme.primary} width={220} height={20} />
-          <View style={{height: 300}} />
+          {/* <View style={{height: 300}} /> */}
           <TouchableOpacity onPress={() => Linking.openURL(URL)}>
             <Text.Headline style={globalStyles.textWhite}>
               Built with love by Tim Tawan
             </Text.Headline>
+            <UnderlineIcon fill={Theme.primary} width={220} height={20} />
           </TouchableOpacity>
+          {isFetching && <ActivityIndicator size="large" />}
         </ScrollView>
       </SafeAreaView>
     );

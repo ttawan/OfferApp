@@ -14,21 +14,25 @@ class OfferScreen extends Component {
     this.renderItem = this.renderItem.bind(this);
   }
 
-  renderItem() {
+  renderItem({item}) {
     const {navigation} = this.props;
+    const {image, id} = item;
     return (
       <ItemCard
-        onPress={() => navigation.navigate('OfferDetailPage')}
-        uri="https://test.sportingglobe.com.au/wp-content/uploads/2019/07/App-Hero-NBA.jpg"
+        id={id}
+        onPress={() => navigation.navigate('OfferDetailPage', item)}
+        uri={image}
       />
     );
   }
 
   render() {
+    const {allOffers} = this.props;
+
     return (
       <ContentArea>
         <FlatList
-          data={[1, 2, 3, 4]}
+          data={allOffers}
           renderItem={this.renderItem}
           ItemSeparatorComponent={() => <View style={styles.itemDivider} />}
         />
